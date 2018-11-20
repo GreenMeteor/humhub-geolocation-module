@@ -1,17 +1,17 @@
 <?php
 
-namespace conerd\humhub\modules\geolocation\models;
+namespace humhub\modules\geolocation\models;
 
-use conerd\humhub\modules\geolocation\Module;
+use humhub\modules\geolocation\Module;
 use humhub\modules\queue\driver\MySQLCommand;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use conerd\humhub\modules\geolocation\models\User;
+use humhub\modules\geolocation\models\User;
 use yii\db\QueryBuilder;
 
 /**
- * UserSearch represents the model behind the search form of `conerd\humhub\modules\geolocation\models\User`.
+ * UserSearch represents the model behind the search form of `humhub\modules\geolocation\models\User`.
  */
 class UserSearch extends User
 {
