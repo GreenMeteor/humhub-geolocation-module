@@ -1,11 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jeremiah
- * Date: 10/10/2018
- * Time: 7:47 PM
- */
-namespace conerd\humhub\modules\geolocation\migration;
+
+namespace humhub\modules\geolocation\migration;
 
 use yii\db\Migration;
 use Yii;
