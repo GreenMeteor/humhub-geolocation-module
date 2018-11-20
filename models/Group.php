@@ -6,10 +6,11 @@
  * @license https://www.humhub.com/licences
  */
 
-namespace conerd\humhub\modules\geolocation\models;
+namespace humhub\modules\geolocation\models;
 
-class Group extends \humhub\modules\user\models\Group
+use humhub\modules\user\models\Group;
+
+class Group extends Group
 {
-
 
 }
