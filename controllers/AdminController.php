@@ -1,6 +1,6 @@
 <?php
 
-namespace conerd\humhub\modules\geolocation\controllers;
+namespace humhub\modules\geolocation\controllers;
 
 use humhub\modules\admin\components\Controller;
 
