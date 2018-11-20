@@ -1,10 +1,11 @@
 <?php
 
 
-namespace conerd\humhub\modules\geolocation\migration;
+namespace humhub\modules\geolocation\migration;
 
 use yii\db\Migration;
 use yii;
+
 /**
  * Class enable
  */
