@@ -1,8 +1,8 @@
 <?php
 
-namespace conerd\humhub\modules\geolocation\controllers;
+namespace humhub\modules\geolocation\controllers;
 
-use conerd\humhub\modules\geolocation\models\SearchForm;
+use humhub\modules\geolocation\models\SearchForm;
 use humhub\components\Controller;
 use humhub\modules\directory\components\UserPostsStreamAction;
 use humhub\modules\directory\widgets\GroupStatistics;
@@ -14,7 +14,7 @@ use humhub\modules\directory\widgets\Sidebar;
 use humhub\modules\search\libs\SearchResultSet;
 use humhub\modules\space\models\Space;
 use humhub\modules\user\models\Group;
-use conerd\humhub\modules\geolocation\models\User;
+use humhub\modules\geolocation\models\User;
 use Yii;
 use yii\base\Event;
 use yii\data\Pagination;
@@ -153,8 +153,6 @@ class IndexController extends Controller
 
                 if (count($searchResultSet) < $this->module->pageSize){
 
-
-
                     $users = User::find()->where(['latitude' => null])->limit($this->module->pageSize - count($searchResultSet))->all();
                     $instances = [];
                     foreach ($users as $user){
@@ -174,8 +172,6 @@ class IndexController extends Controller
             }else {
                 $pagination = new Pagination([]);
             }
-
-
 
         }
 
@@ -226,7 +222,6 @@ class IndexController extends Controller
         }else {
             return false;
         }
-
 
     }
 
@@ -299,7 +294,6 @@ class IndexController extends Controller
     {
         return $this->render('userPosts', []);
     }
-
 
 }
 
