@@ -1,11 +1,11 @@
 <?php
 
-use conerd\humhub\modules\geolocation\widgets\Menu;
+use humhub\modules\geolocation\widgets\Menu;
 use humhub\widgets\FooterMenu;
 use humhub\modules\directory\widgets\Sidebar;
-\humhub\assets\JqueryKnobAsset::register($this);
-\conerd\humhub\modules\geolocation\assets\Assets::register($this);
 
+\humhub\assets\JqueryKnobAsset::register($this);
+\humhub\modules\geolocation\assets\Assets::register($this);
 ?>
 
 <div class="container">
