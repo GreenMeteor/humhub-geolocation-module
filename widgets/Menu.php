@@ -6,7 +6,7 @@
  * @license https://www.humhub.com/licences
  */
 
-namespace conerd\humhub\modules\geolocation\widgets;
+namespace humhub\modules\geolocation\widgets;
 
 use Yii;
 use yii\helpers\Url;
