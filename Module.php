@@ -1,9 +1,9 @@
 <?php
 
-namespace conerd\humhub\modules\geolocation;
+namespace humhub\modules\geolocation;
 
-use conerd\humhub\modules\geolocation\migration\Uninstall;
-use conerd\humhub\modules\geolocation\migration\Enable;
+use humhub\modules\geolocation\migration\Uninstall;
+use humhub\modules\geolocation\migration\Enable;
 use humhub\modules\user\models\Group;
 use Yii;
 use yii\helpers\Url;
