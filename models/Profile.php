@@ -6,7 +6,7 @@
  * @license https://www.humhub.com/licences
  */
 
-namespace conerd\humhub\modules\geolocation\models;
+namespace humhub\modules\geolocation\models;
 
 use humhub\modules\user\models\Profile;
 
