@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: jeremiah
- * Date: 10/13/2018
- * Time: 4:36 PM
- */
 
-
-namespace conerd\humhub\modules\geolocation\models;
+namespace humhub\modules\geolocation\models;
 
 use humhub\components\ActiveRecord;
 use humhub\modules\comment\widgets\Comments;
@@ -17,13 +10,10 @@ use humhub\modules\search\events\SearchAddEvent;
 use humhub\modules\search\interfaces\Searchable;
 use humhub\modules\content\components\ContentContainerActiveRecord;
 use Yii;
-
 use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "user".
- *
- *
  */
 class SearchForm extends ActiveRecord
 {
