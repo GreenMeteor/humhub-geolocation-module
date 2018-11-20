@@ -1,6 +1,6 @@
 <?php
 /* @var $this \yii\web\View */
-/* @var $model \conerd\humhub\modules\geolocation\models\SearchForm */
+/* @var $model \humhub\modules\geolocation\models\SearchForm */
 /* @var $group humhub\modules\user\models\Group */
 /* @var $users humhub\modules\user\models\User[] */
 
