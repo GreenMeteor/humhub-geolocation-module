@@ -22,7 +22,6 @@ humhub.module('geolocation', function(module, require, $) {
                     document.getElementById('searchform-latitude').setAttribute('value',position.coords.latitude );
                     document.getElementById('searchform-longitude').setAttribute('value',position.coords.longitude );
 
-
                     var formData = $('#group-search-form').serialize();
 
                     $.ajax({
@@ -38,8 +37,7 @@ humhub.module('geolocation', function(module, require, $) {
                         });
                     }
 
-
-            })
+        })
             .fail(function() {
                 console.log("error");
             });
