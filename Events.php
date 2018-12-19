@@ -24,7 +24,7 @@ class Events
         $it = 0;
         /* @var $sender TopMenu */
         foreach ($event->sender->items as $item){
-            if ($item['label'] == 'Directory'){
+            if ($item['label'] == Yii::t('GeolocationModule.base', 'Directory')){
                 $arrayNumber = $it;
             }
             $it++;
@@ -43,7 +43,7 @@ class Events
     {
 
         $event->sender->addItem([
-            'label' => 'Geolocation',
+            'label' => Yii::t('GeolocationModule.base', 'Geolocation'),
             'url' => Url::to(['/geolocation/admin']),
             'group' => 'manage',
             'icon' => '<i class="fa fa-compass"></i>',
