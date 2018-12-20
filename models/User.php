@@ -6,7 +6,6 @@ use humhub\components\ActiveRecord;
 use humhub\modules\comment\widgets\Comments;
 use humhub\modules\content\models\Content;
 use humhub\modules\file\models\File;
-use humhub\modules\user\models\User;
 use humhub\modules\search\events\SearchAddEvent;
 use humhub\modules\search\interfaces\Searchable;
 use humhub\modules\content\components\ContentContainerActiveRecord;
@@ -20,7 +19,7 @@ use yii\web\IdentityInterface;
  * @property string $latitude
  *
  */
-class User extends User
+class User extends \humhub\modules\user\models\User
 {
     public $distance;
 
