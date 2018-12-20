@@ -1,0 +1,11 @@
+# .scrutinizer.yml
+
+checks:
+    php: true
+    javascript: true
+filter: {  }
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                concatenation: true
