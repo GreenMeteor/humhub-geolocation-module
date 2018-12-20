@@ -1,6 +1,6 @@
 <?php
 
-namespace  conerd\humhub\modules\geolocation;
+namespace  humhub\modules\geolocation;
 
 use humhub\components\Event;
 use humhub\widgets\TopMenu;
@@ -9,7 +9,6 @@ use yii\helpers\Url;
 
 class Events
 {
-
     public static function directoryAfterInit(){
         $x = 3;
     }
