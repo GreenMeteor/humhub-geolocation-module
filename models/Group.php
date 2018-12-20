@@ -8,9 +8,8 @@
 
 namespace humhub\modules\geolocation\models;
 
-use humhub\modules\user\models\Group;
 
-class Group extends Group
+class Group extends \humhub\modules\user\models\Group
 {
 
 }
