@@ -46,8 +46,8 @@ class Events
             'url' => Url::to(['/geolocation/admin']),
             'group' => 'manage',
             'icon' => '<i class="fa fa-compass"></i>',
-            'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'geolocation' && Yii::$app->controller->id == 'admin'),
-            'sortOrder' => 99999,
+            'isActive' => Yii::$app->controller->module && Yii::$app->controller->module->id == 'geolocation' && Yii::$app->controller->id == 'admin',
+            'sortOrder' => 650
         ]);
     }
 }
