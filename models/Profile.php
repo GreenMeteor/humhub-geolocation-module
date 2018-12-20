@@ -8,9 +8,7 @@
 
 namespace humhub\modules\geolocation\models;
 
-use humhub\modules\user\models\Profile;
-
-class Profile extends Profile
+class Profile extends \humhub\modules\user\models\Profile
 {
 
 }
