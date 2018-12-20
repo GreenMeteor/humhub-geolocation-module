@@ -1,13 +1,13 @@
 <?php
 
-use conerd\humhub\modules\geolocation\Events;
+use humhub\modules\geolocation\Events;
 use humhub\modules\admin\widgets\AdminMenu;
 use humhub\widgets\TopMenu;
 
 return [
 	'id' => 'geolocation',
-	'class' => 'conerd\humhub\modules\geolocation\Module',
-	'namespace' => 'conerd\humhub\modules\geolocation',
+	'class' => 'humhub\modules\geolocation\Module',
+	'namespace' => 'humhub\modules\geolocation',
 	'events' => [
 
 		[
@@ -16,7 +16,7 @@ return [
 			'callback' => [Events::class, 'onAdminMenuInit']
 		],
 
-        ['class' => TopMenu::class, 'event' => TopMenu::EVENT_BEFORE_RUN, 'callback' => [\conerd\humhub\modules\geolocation\Events::class, 'onTopMenuInit']],
+        ['class' => TopMenu::class, 'event' => TopMenu::EVENT_BEFORE_RUN, 'callback' => [\humhub\modules\geolocation\Events::class, 'onTopMenuInit']],
 	],
 
 
