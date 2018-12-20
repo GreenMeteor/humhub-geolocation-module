@@ -1,3 +1,4 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/GreenMeteor/humhub-geolocation-module/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/GreenMeteor/humhub-geolocation-module/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/GreenMeteor/humhub-geolocation-module/badges/build.png?b=master)](https://scrutinizer-ci.com/g/GreenMeteor/humhub-geolocation-module/build-status/master) [![CLA assistant](https://cla-assistant.io/readme/badge/GreenMeteor/humhub-geolocation-module)](https://cla-assistant.io/GreenMeteor/humhub-geolocation-module)
 # Geo Location
 
 Stores lat long of the user in the database and orders the directory by distance. 
