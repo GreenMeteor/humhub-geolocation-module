@@ -74,7 +74,7 @@ class IndexController extends Controller
 
         $group = null;
         $pagination = new Pagination([]);
-        if ($model->load(Yii::$app->request->post())){
+        if ($model->load(Yii::$app->request->post())) {
 
 
             if ($model->groupID) {
@@ -98,7 +98,7 @@ class IndexController extends Controller
 
         }
 
-        if ($model->keyword != ''){
+        if ($model->keyword != '') {
             $searchResultSet = Yii::$app->search->find($model->keyword, $searchOptions);
 
             $pagination = new Pagination([
@@ -106,15 +106,15 @@ class IndexController extends Controller
                 'pageSize' => $searchResultSet->pageSize
             ]);
 
-        }else {
+        } else {
 
             $limit = $this->module->pageSize;
 
-            if ($model->page > 1){
+            if ($model->page > 1) {
                 $limit = ($model->page * $this->module->pageSize) . ', ' . $this->module->pageSize;
             }
 
-            if ($model->latitude == null || $model->longitude == null){
+            if ($model->latitude == null || $model->longitude == null) {
                 $user = User::find()->where(['id' => Yii::$app->user->id])->one();
                 /* @var $user User */
                 $model->latitude = $user->latitude;
@@ -122,19 +122,19 @@ class IndexController extends Controller
             }
 
             /* @var $searchResultSet User[] */
-            if ($model->latitude != null && $model->longitude != null){
+            if ($model->latitude != null && $model->longitude != null) {
 
-                if ($model->distance == null){
+                if ($model->distance == null) {
                     $model->distance = 25;
                 }
 
                 $commandString = 'SELECT *, get_distance_in_miles_between_geo_locations( ' . $model->latitude . ', ' . $model->longitude . ', latitude, longitude) as distance
-                    from user WHERE longitude BETWEEN ' . $model->longitude . ' - ' . $model->distance . ' /abs(cos(radians(' . $model->latitude . '))*69) and '. $model->longitude .' + ' . $model->distance . ' /abs(cos(radians(' . $model->latitude . '))*69)
-                    and latitude BETWEEN ' . $model->latitude . ' - (' . $model->distance . '/69) and '. $model->latitude . '+(' . $model->distance . '/69) and id != ' . Yii::$app->user->id;
+                    from user WHERE longitude BETWEEN ' . $model->longitude . ' - ' . $model->distance . ' /abs(cos(radians(' . $model->latitude . '))*69) and ' . $model->longitude . ' + ' . $model->distance . ' /abs(cos(radians(' . $model->latitude . '))*69)
+                    and latitude BETWEEN ' . $model->latitude . ' - (' . $model->distance . '/69) and ' . $model->latitude . '+(' . $model->distance . '/69) and id != ' . Yii::$app->user->id;
 
-                if ($model->page > 1){
+                if ($model->page > 1) {
                     $limit = ($model->page * $this->module->pageSize) . ', ' . $this->module->pageSize;
-                }else {
+                } else {
                     $limit = $this->module->pageSize;
                 }
 
@@ -143,7 +143,7 @@ class IndexController extends Controller
                 $searchResultSet = Yii::$app->db->createCommand($commandString)->queryAll();
 
                 $instances = [];
-                foreach ($searchResultSet as $result){
+                foreach ($searchResultSet as $result) {
                     $modelClass = User::class;
                     $instance = $modelClass::findOne(['id' => $result['id']]);
                     $instance->distance = $result['distance'];
@@ -151,11 +151,11 @@ class IndexController extends Controller
                 }
                 $searchResultSet = $instances;
 
-                if (count($searchResultSet) < $this->module->pageSize){
+                if (count($searchResultSet) < $this->module->pageSize) {
 
                     $users = User::find()->where(['latitude' => null])->limit($this->module->pageSize - count($searchResultSet))->all();
                     $instances = [];
-                    foreach ($users as $user){
+                    foreach ($users as $user) {
                         $modelClass = User::class;
                         $instance = $modelClass::findOne(['id' => $user->id]);
                         $instance->distance = "Unknown Distance";
@@ -169,39 +169,39 @@ class IndexController extends Controller
                     'totalCount' => count($searchResultSet),
                     'pageSize' => $this->module->pageSize
                 ]);
-            }else {
+            } else {
                 $pagination = new Pagination([]);
             }
 
         }
 
-        Event::on(Sidebar::class, Sidebar::EVENT_INIT, function ($event) {
+        Event::on(Sidebar::class, Sidebar::EVENT_INIT, function($event) {
             $event->sender->addWidget(NewMembers::class, [], ['sortOrder' => 10]);
             $event->sender->addWidget(MemberStatistics::class, [], ['sortOrder' => 20]);
         });
 
         $users = null;
-        if ($model->keyword == null){
-            if ($model->latitude != null && $model->longitude != null){
+        if ($model->keyword == null) {
+            if ($model->latitude != null && $model->longitude != null) {
 
                 $users = $searchResultSet;
-            }else {
+            } else {
                 $users = new SearchResultSet();
                 $users = $users->getResultInstances();
             }
 
-        }else {
+        } else {
             $users = $searchResultSet->getResultInstances();
         }
 
-        if (yii::$app->request->isAjax){
+        if (yii::$app->request->isAjax) {
             return $this->render('members', [
                 'model' => $model,
                 'group' => $group,
                 'users' => $users,
                 'pagination' => $pagination
             ]);
-        }else {
+        } else {
             return $this->render('members', [
                 'model' => $model,
                 'group' => $group,
@@ -212,14 +212,14 @@ class IndexController extends Controller
 
     }
 
-    public function actionUpdatelocation( $lat,  $long){
+    public function actionUpdatelocation($lat, $long) {
 
         $record = User::find()->where(['id' => Yii::$app->user->id])->one();
         $record->latitude = $lat;
         $record->longitude = $long;
-        if ($record->save()){
+        if ($record->save()) {
             return true;
-        }else {
+        } else {
             return false;
         }
 
@@ -249,7 +249,7 @@ class IndexController extends Controller
             'pageSize' => $searchResultSet->pageSize
         ]);
 
-        Event::on(Sidebar::class, Sidebar::EVENT_INIT, function ($event) {
+        Event::on(Sidebar::class, Sidebar::EVENT_INIT, function($event) {
             $event->sender->addWidget(NewSpaces::class, [], ['sortOrder' => 10]);
             $event->sender->addWidget(SpaceStatistics::class, [], ['sortOrder' => 20]);
         });
@@ -274,7 +274,7 @@ class IndexController extends Controller
 
         $groups = Group::getDirectoryGroups();
 
-        Event::on(Sidebar::class, Sidebar::EVENT_INIT, function ($event) {
+        Event::on(Sidebar::class, Sidebar::EVENT_INIT, function($event) {
             $event->sender->addWidget(GroupStatistics::class, [], ['sortOrder' => 10]);
         });
 

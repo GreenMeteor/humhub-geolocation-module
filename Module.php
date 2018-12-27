@@ -32,16 +32,16 @@ class Module extends \humhub\components\Module
     public $guestAccess = false;
 
     /**
-    * @inheritdoc
-    */
+     * @inheritdoc
+     */
     public function getConfigUrl()
     {
         return Url::to(['/geolocation/admin']);
     }
 
     /**
-    * @inheritdoc
-    */
+     * @inheritdoc
+     */
     public function disable()
     {
         $uninstall = new Uninstall();
@@ -67,7 +67,7 @@ class Module extends \humhub\components\Module
         return (Group::find()->where(['show_at_directory' => 1])->count() != 0);
     }
 
-    public function getPath(){
+    public function getPath() {
         return "protected/modules/geolocation";
     }
 

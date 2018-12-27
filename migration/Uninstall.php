@@ -12,11 +12,11 @@ class Uninstall extends Migration
     {
         $table = Yii::$app->db->getTableSchema('user');
 
-        if (isset($table->columns['longitude'])){
+        if (isset($table->columns['longitude'])) {
             $this->dropColumn('user', 'longitude');
         }
 
-        if (isset($table->columns['latitude'])){
+        if (isset($table->columns['latitude'])) {
             $this->dropColumn('user', 'latitude');
         }
 

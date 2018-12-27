@@ -21,8 +21,8 @@ class Assets extends AssetBundle
     public $jsOptions = ['position' => View::POS_END];
 
     /**
-    * @var array change forceCopy to true when testing your js in order to rebuild this assets on every request (otherwise they will be cached)
-    */
+     * @var array change forceCopy to true when testing your js in order to rebuild this assets on every request (otherwise they will be cached)
+     */
     public $publishOptions = [
         'forceCopy' => false
     ];
