@@ -12,17 +12,15 @@ use humhub\modules\directory\widgets\UserGroupList;
 use humhub\modules\directory\widgets\UserTagList;
 use humhub\modules\user\widgets\Image;
 use humhub\modules\ui\form\widgets\ActiveForm;
-
-
-
 ?>
 <div class="panel panel-default">
 
     <div class="panel-heading">
         <?php if ($group === null) : ?>
             <?= Yii::t('DirectoryModule.base', '<strong>Member</strong> directory'); ?>
-        <?php else: ?>
-            <?= Yii::t('DirectoryModule.base', '<strong>Group</strong> members - {group}', ['{group}' => Html::encode($group->name)]); ?>
+        <?php else : ?>
+            <?= Yii::t('DirectoryModule.base', '<strong>Group</strong> members - {group}', ['{group}' => Html::encode($group->name)]);
+?>
         <?php endif; ?>
     </div>
 
@@ -78,10 +76,10 @@ use humhub\modules\ui\form\widgets\ActiveForm;
                     <div class="media-body">
                         <h4 class="media-heading">
                             <?= Html::containerLink($user); ?>
-                            <div id="distance"><?php if (is_numeric($user->distance)){
+                            <div id="distance"><?php if (is_numeric($user->distance)) {
                                 echo round($user->distance) . " miles.</div>";
-                                }else {
-                                echo $user->distance ."</div>";
+                                } else {
+                                echo $user->distance . "</div>";
                                 }  ?>
                             <?= UserGroupList::widget(['user' => $user]); ?>
                         </h4>

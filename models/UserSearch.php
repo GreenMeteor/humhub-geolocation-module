@@ -59,7 +59,7 @@ class UserSearch extends \humhub\modules\geolocation\models\User
             return $dataProvider;
         }
 
-        $newQuery = new MySQLCommand('geolocatioin',Module::getInstance());
+        $newQuery = new MySQLCommand('geolocatioin', Module::getInstance());
 
         // grid filtering conditions
         $query->andFilterWhere([

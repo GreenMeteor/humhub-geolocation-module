@@ -9,7 +9,7 @@ use yii\helpers\Url;
 
 class Events extends \yii\base\BaseObject
 {
-    public static function directoryAfterInit(){
+    public static function directoryAfterInit() {
         $x = 3;
     }
 
@@ -24,14 +24,14 @@ class Events extends \yii\base\BaseObject
         $arrayNumber = null;
         $it = 0;
         /* @var $sender TopMenu */
-        foreach ($event->sender->items as $item){
+        foreach ($event->sender->items as $item) {
             if ($item['label'] == Yii::t('DirectoryModule.base', 'Directory'))
             {
                 $arrayNumber = $it;
             }
             $it++;
         }
-        $event->sender->items[$arrayNumber]['url'] = Url::to([ "/geolocation/index"]);
+        $event->sender->items[$arrayNumber]['url'] = Url::to(["/geolocation/index"]);
     }
 
 
