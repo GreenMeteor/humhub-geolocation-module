@@ -1,6 +1,5 @@
 humhub.module('geolocation', function(module, require, $) {
 
-
     console.log('Geolocation init.');
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getPosition);
@@ -12,15 +11,15 @@ humhub.module('geolocation', function(module, require, $) {
 
         var url = "index.php?r=geolocation/index/updatelocation&lat=" + position.coords.latitude + "&long=" + position.coords.longitude;
         $.ajax({
-            url: url,
-            type: 'post',
+                url: url,
+                type: 'post',
 
-        })
+            })
             .done(function(response) {
                 if (response == 1) {
                     console.log("Updated Location in DB.");
-                    document.getElementById('searchform-latitude').setAttribute('value',position.coords.latitude );
-                    document.getElementById('searchform-longitude').setAttribute('value',position.coords.longitude );
+                    document.getElementById('searchform-latitude').setAttribute('value', position.coords.latitude);
+                    document.getElementById('searchform-longitude').setAttribute('value', position.coords.longitude);
 
                     var formData = $('#group-search-form').serialize();
 
@@ -33,11 +32,11 @@ humhub.module('geolocation', function(module, require, $) {
                         console.log("Finished ajax call to members.");
 
                     }).fail(function() {
-                            console.log("error");
-                        });
-                    }
+                        console.log("error");
+                    });
+                }
 
-        })
+            })
             .fail(function() {
                 console.log("error");
             });
