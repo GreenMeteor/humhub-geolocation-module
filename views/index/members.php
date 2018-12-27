@@ -12,19 +12,14 @@ use humhub\modules\directory\widgets\UserGroupList;
 use humhub\modules\directory\widgets\UserTagList;
 use humhub\modules\user\widgets\Image;
 use humhub\modules\ui\form\widgets\ActiveForm;
-
-
-
 ?>
 <div class="panel panel-default">
 
     <div class="panel-heading">
         <?php if ($group === null) : ?>
             <?= Yii::t('DirectoryModule.base', '<strong>Member</strong> directory'); ?>
-        <?php else {
-    : ?>
+        <?php else : ?>
             <?= Yii::t('DirectoryModule.base', '<strong>Group</strong> members - {group}', ['{group}' => Html::encode($group->name)]);
-}
 ?>
         <?php endif; ?>
     </div>
