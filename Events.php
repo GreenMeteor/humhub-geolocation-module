@@ -7,13 +7,15 @@ use humhub\widgets\TopMenu;
 use Yii;
 use yii\helpers\Url;
 
-class Events
+class Events extends \yii\base\BaseObject
 {
     public static function directoryAfterInit(){
         $x = 3;
     }
+
     /**
-     * Defines what to do when the top menu is initialized.
+     * On build of the TopMenu, check if module is enabled
+     * When enabled add a menu item
      *
      * @param $event \yii\base\Event
      */
@@ -23,12 +25,12 @@ class Events
         $it = 0;
         /* @var $sender TopMenu */
         foreach ($event->sender->items as $item){
-            if ($item['label'] == Yii::t('GeolocationModule.base', 'Directory')){
+            if ($item['label'] == Yii::t('DirectoryModule.base', 'Directory'))
+            {
                 $arrayNumber = $it;
             }
             $it++;
         }
-
         $event->sender->items[$arrayNumber]['url'] = Url::to([ "/geolocation/index"]);
     }
 
@@ -38,13 +40,12 @@ class Events
      *
      * @param $event
      */
-    public static function onAdminMenuInit($event)
+    public static function onAdminMenuInit(\yii\base\Event $event)
     {
-
         $event->sender->addItem([
             'label' => Yii::t('GeolocationModule.base', 'Geolocation'),
-            'url' => Url::to(['/geolocation/admin']),
-            'group' => 'manage',
+            'url' => Url::toRoute('/geolocation/admin/index'),
+            'group' => 'settings',
             'icon' => '<i class="fa fa-compass"></i>',
             'isActive' => Yii::$app->controller->module && Yii::$app->controller->module->id == 'geolocation' && Yii::$app->controller->id == 'admin',
             'sortOrder' => 650
