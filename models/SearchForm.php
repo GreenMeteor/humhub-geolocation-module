@@ -43,13 +43,13 @@ class SearchForm extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'page' => 'Page Number',
-            'distance' => 'Search Distance',
-            'longitude' => 'Longitude',
-            'latitude' => 'Latitude',
-            'keyword' => 'Keyword',
-            'groupID' => 'Group ID',
-            'sex' => 'Gender'
+            'page' => Yii::t('GeolocationModule.base', 'Page Number'),
+            'distance' => Yii::t('GeolocationModule.base', 'Search Distance'),
+            'longitude' => Yii::t('GeolocationModule.base', 'Longitude'),
+            'latitude' => Yii::t('GeolocationModule.base', 'Latitude'),
+            'keyword' => Yii::t('GeolocationModule.base', 'Keyword'),
+            'groupID' => Yii::t('GeolocationModule.base', 'Group ID'),
+            'sex' => Yii::t('GeolocationModule.base', 'Gender')
         ];
     }
 
